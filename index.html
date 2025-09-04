@@ -86,7 +86,7 @@
         min-height: 130px;
         position: relative;
         font-weight: 500;
-        line-height: 1.5em;
+        line-height: 1.2em;
       }
 
       .typewriter span {
@@ -198,9 +198,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Happy Teacher's Day, Madam Ji ❤️</h1>
+      <h1>Happy Teacher's Day, Vaishali ❤️</h1>
       <div class="typewriter" id="message"></div>
-      <div class="signature">– With love, Paglu 💖</div>
+      <div class="signature">– With love, Your Paglu 💖</div>
 
       <!-- Play Button -->
       <button class="play-button" onclick="playMusic()">
@@ -243,16 +243,22 @@ Thank you for teaching me love, patience, and happiness every day.
 You’re my favorite subject, Vaishali. 😘`;
 
       let i = 0;
+
       function typeWriter() {
         if (i < message.length) {
           const char = message.charAt(i);
           const span = document.createElement("span");
+
+          // Check for newline and replace with <br>
           span.innerHTML = char === "\n" ? "<br>" : char;
+
           document.getElementById("message").appendChild(span);
           i++;
           setTimeout(typeWriter, 50);
         }
       }
+      window.onload = typeWriter;
+
       window.onload = typeWriter;
 
       // YouTube Player API
@@ -292,5 +298,3 @@ You’re my favorite subject, Vaishali. 😘`;
     </script>
   </body>
 </html>
-
-
