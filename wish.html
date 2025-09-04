@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Teacher's Day Vaishali ❤️</title>
+    <link rel="icon" href="https://example.com/favicon.ico" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #f5e0e6 0%,
+          #f7c9d6 60%,
+          #fce1e1 100%
+        );
+        overflow: hidden;
+      }
+
+      /* Shimmer animated overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.1),
+          transparent 70%
+        );
+        animation: shimmer 6s ease-in-out infinite;
+        z-index: 0;
+      }
+
+      @keyframes shimmer {
+        0%,
+        100% {
+          transform: translateX(-25%) translateY(-25%) scale(1);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateX(25%) translateY(25%) scale(1.2);
+          opacity: 0.9;
+        }
+      }
+
+      .container {
+        padding: 25px 30px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+        max-width: 520px;
+        z-index: 1;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 2.2em;
+        color: #d6336c;
+        margin: 0 0 20px;
+        font-weight: 700;
+      }
+
+      .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        font-size: 1.2em;
+        color: #7a3e23;
+        text-align: left;
+        white-space: pre-wrap;
+        min-height: 130px;
+        position: relative;
+        font-weight: 500;
+        line-height: 1.5em;
+      }
+
+      .typewriter span {
+        opacity: 0;
+        animation: fadeIn 0.3s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .signature {
+        margin-top: 35px;
+        font-size: 1.3em;
+        color: #9b3b26;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      /* Floating hearts */
+      .heart {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #ff6f61;
+        transform: rotate(45deg);
+        animation: float 5s linear infinite;
+        opacity: 0.85;
+        filter: drop-shadow(0 0 2px #e91e63);
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #ff6f61;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      @keyframes float {
+        0% {
+          bottom: -10px;
+          opacity: 0;
+          transform: translateX(0) rotate(45deg) scale(0.5);
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          bottom: 110%;
+          transform: translateX(50px) rotate(45deg) scale(1);
+          opacity: 0;
+        }
+      }
+
+      /* Play Button Style */
+      .play-button {
+        background-color: #f88379; /* soft romantic coral-pink */
+        color: white;
+        font-size: 1.1em;
+        padding: 10px 28px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 3px 12px rgba(248, 131, 121, 0.6);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        font-weight: 600;
+        user-select: none;
+        margin-top: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .play-button:hover {
+        background-color: #ff6f61;
+        transform: scale(1.05);
+      }
+
+      .play-button:focus {
+        outline: none;
+        box-shadow: 0 0 8px 3px rgba(255, 111, 97, 0.7);
+      }
+
+      /* Hidden tiny iframe */
+      #youtubeVideo {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        position: fixed;
+        left: -10px;
+        top: -10px;
+        pointer-events: none;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Happy Teacher's Day, Vaishali ❤️</h1>
+      <div class="typewriter" id="message"></div>
+      <div class="signature">– With love, Paglu 💖</div>
+
+      <!-- Play Button -->
+      <button class="play-button" onclick="playMusic()">
+        Play
+        <span class="heart-icon">❤️</span>
+      </button>
+    </div>
+
+    <!-- Hidden YouTube iframe for audio -->
+    <iframe
+      id="youtubeVideo"
+      src="https://www.youtube.com/embed/Qbbl7AF9--8?start=41&enablejsapi=1&version=3&loop=1&playlist=Qbbl7AF9--8"
+      title="YouTube video player"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    >
+    </iframe>
+
+    <!-- Floating hearts -->
+    <script>
+      // Floating hearts effect
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+      setInterval(createHeart, 300);
+
+      // Typewriter message
+      const message = `To the most beautiful teacher of my life,
+
+Thank you for teaching me love, patience, and happiness every day.
+
+You’re my favorite subject, Vaishali. 😘`;
+
+      let i = 0;
+      function typeWriter() {
+        if (i < message.length) {
+          const char = message.charAt(i);
+          const span = document.createElement("span");
+          span.innerHTML = char === "\n" ? "<br>" : char;
+          document.getElementById("message").appendChild(span);
+          i++;
+          setTimeout(typeWriter, 50);
+        }
+      }
+      window.onload = typeWriter;
+
+      // YouTube Player API
+      let player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("youtubeVideo", {
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+
+      function onPlayerReady(event) {
+        // Nothing on ready, wait for play button
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+          player.playVideo(); // loop manually if needed
+        }
+      }
+
+      function playMusic() {
+        if (player) {
+          player.seekTo(41); // Start at 25 seconds
+          player.unMute();
+          player.playVideo();
+        }
+      }
+
+      // Load YouTube Iframe API script dynamically
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+  </body>
+</html>
